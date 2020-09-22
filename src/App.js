@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './App.scss';
 import Header from './components/header';
-import Phone from './components/phone';
+import PhoneList from './components/phoneList';
 
 class App extends Component {
   render() {
     return (
       <main className="app">
         <Header />
-        <Phone />
+        <PhoneList />
       </main>
     );
   }
