@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../styles/phoneList.scss';
 import Phone from './phone';
 
-class PhoneList extends Component {
+class Iphone extends Component {
   state = {
     phoneList: [
       { id: 1, name: 'iPhone11', price: 5999 },
@@ -22,4 +22,4 @@ class PhoneList extends Component {
   }
 }
 
-export default PhoneList;
+export default Iphone;
