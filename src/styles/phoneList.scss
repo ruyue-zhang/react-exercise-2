@@ -4,3 +4,9 @@
   display: flex;
   justify-content: space-between;
 }
+
+.brand .brand_name {
+  display: inline-block;
+  margin: 10px 0 0 20px; 
+  font-weight: 700;
+}
