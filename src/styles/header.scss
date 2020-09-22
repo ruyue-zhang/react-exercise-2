@@ -1,0 +1,22 @@
+@import 'variables';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  padding: 0 20px;
+  vertical-align: middle;
+  background-color: $support-blue;
+}
+
+.title,
+.car {
+  color: $white;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 40px;
+}
+
+.car {
+  font-weight: normal;
+}
