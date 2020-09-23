@@ -4,14 +4,13 @@ import Phone from './phone';
 
 class PhoneList extends Component {
   render() {
-    const { brand, title, onAddGoods } = this.props;
+    const { brand, goods, onAddGoods } = this.props;
     return (
       <div className="brand">
-        <span className="brand_name">{title}</span>
+        <span className="brand_name">{brand}</span>
         <div className="phone_list">
-          {brand.map((item) => (
+          {goods.map((item) => (
             <Phone
-              key={item.id}
               name={item.name}
               price={item.price}
               onAdd={onAddGoods}

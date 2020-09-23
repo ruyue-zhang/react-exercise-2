@@ -5,24 +5,8 @@ import PhoneList from './components/phoneList';
 
 class App extends Component {
   state = {
-    brands: [
-      { id: 1,
-        phones: [
-          { id: 1, name: 'iPhone11', price: 5999 },
-          { id: 2, name: 'iPhoneXS', price: 5399 },
-          { id: 3, name: 'iPhoneSE', price: 3599 },
-        ], 
-        brand_name: 'IPHONE', 
-      },
-      { id: 2,
-        phones: [
-          { id: 1, name: 'HUAWEI P40 Prp+', price: 7999 },
-          { id: 2, name: 'HUAWEI Mate 30', price: 5000 },
-          { id: 3, name: 'HUAWEI nova 7', price: 4000 },
-        ], 
-        brand_name: 'HUAWEI',
-      },
-    ],
+    iphone: [],
+    huawei: [],
     count: 0,
   };
 
@@ -32,19 +16,47 @@ class App extends Component {
     })
   };
 
+  componentDidMount() {
+    this.getData();
+  }
+
+  getData = async () => {
+    try {
+      const products = await fetch('http://localhost:3000/products');
+      const phone = await products.json();
+      const iphoneList = phone.filter((item) => 
+       item.category === "iPhone"
+      )
+      const huaweiList = phone.filter((item) => 
+        item.category === "HUAWEI"
+      )
+
+      this.setState( { 
+        iphone: iphoneList,
+        huawei: huaweiList,
+      })
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   render() {
     return (
       <main className="app">
         <Header count={this.state.count} />
         <div>
-          {this.state.brands.map((brand) => (
-            <PhoneList
-              key={brand.id}
-              brand={brand.phones}
-              title={brand.brand_name}
-              onAddGoods={this.handleAdd}
-            />
-          ))}
+          <PhoneList
+            key={1}
+            brand={'iPhone'}
+            goods={this.state.iphone}
+            onAddGoods={this.handleAdd}
+          />
+          <PhoneList
+            key={2}
+            brand={'HUAWEI'}
+            goods={this.state.huawei}
+            onAddGoods={this.handleAdd}
+          />
         </div>
       </main>
     );
