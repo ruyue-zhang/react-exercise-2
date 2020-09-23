@@ -10,7 +10,7 @@ class Header extends Component {
     return (
       <div className="header">
         <span className="title">{this.state.title}</span>
-        <span className="car">5</span>
+        <span className="car">{this.props.count}</span>
       </div>
     );
   }

@@ -4,7 +4,7 @@ import Phone from './phone';
 
 class PhoneList extends Component {
   render() {
-    const { brand, title } = this.props;
+    const { brand, title, onAddGoods } = this.props;
     return (
       <div className="brand">
         <span className="brand_name">{title}</span>
@@ -14,6 +14,7 @@ class PhoneList extends Component {
               key={item.id}
               name={item.name}
               price={item.price}
+              onAdd={onAddGoods}
             />
           ))}
         </div>

@@ -23,17 +23,26 @@ class App extends Component {
         brand_name: 'HUAWEI',
       },
     ],
+    count: 0,
   };
+
+  handleAdd = () => {
+    this.setState({
+      count: this.state.count + 1
+    })
+  };
+
   render() {
     return (
       <main className="app">
-        <Header />
+        <Header count={this.state.count} />
         <div>
           {this.state.brands.map((brand) => (
             <PhoneList
               key={brand.id}
               brand={brand.phones}
               title={brand.brand_name}
+              onAddGoods={this.handleAdd}
             />
           ))}
         </div>
